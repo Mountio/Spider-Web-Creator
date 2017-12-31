@@ -49,7 +49,7 @@ atribute(atrcode[i].id,atrcode[i].styleparam,atrcode[i].content);
   if(location.hash!=="") {
   jQuery.get("api.html",function(data,status){
   var lol = data.split("~");
-    var code = lol[lol.indexOf(location.hash)-1];
+    var code = lol[lol.indexOf(location.hash)+1];
     var overallcode = code;
 readData(overallcode);
   });
