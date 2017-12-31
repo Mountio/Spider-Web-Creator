@@ -3,7 +3,9 @@
 <head>
 <title>SPIDER WEB CREATOR</title></head>
 <body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+  $.noConflict;
 function addElement(obj) {
 var body = document.getElementsByTagName("body")[0];
 if(obj.type==="img"){
@@ -44,8 +46,15 @@ atribute(atrcode[i].id,atrcode[i].styleparam,atrcode[i].content);
 }
 }
 //defining the variable overallcode is what makes websites run.
-var overallcode = {html:[{type:"p",id:"p",content:"Hi!"},{type:"h1",id:"h1",content:"This is a heading."}],css:[{id:"p",styleparam:"color",content:"'red'"}],js:[],atr:[]};
+  if(location.hash!=="") {
+  jQuery.get("api.html",function(data,status){
+  var lol = data.split("~");
+    var code = lol[lol.indexOf(location.hash)-1];
+    var overallcode = code;
 readData(overallcode);
+  });
+  }
+
 </script>
 </body>
 </html>
